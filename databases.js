@@ -1,16 +1,11 @@
 const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/**
- * Accepts a user id value and returns a string containing
- * the database that user's information can be found in.
- * @param {Number} id The user id.
- * @return {String} The name of the database to look up the user.
- */
+
 export async function central(id) {
   if (typeof id !== "number") throw new Error("Invalid Input -- Not a Number");
   if (id < 1 || id > 10) throw new Error("Invalid Input -- Out of Range");
 
-  await wait(100); // Faking an "external" call here by adding a delay.
+  await wait(100);
   let db = "db1";
   if (id > 4) db = "db2";
   if (id > 7) db = "db3";
@@ -18,12 +13,7 @@ export async function central(id) {
   return db;
 }
 
-/**
- * Accepts a user id value and returns an object containing
- * username, website, and company data.
- * @param {Number} id The user id.
- * @return {Object} The user's username, website, and company data.
- */
+
 export async function db1(id) {
   if (typeof id !== "number") throw new Error("Invalid Input -- Not a Number");
   if (id < 1 || id > 4) throw new Error("Invalid Input -- Out of Range");
@@ -37,12 +27,7 @@ export async function db1(id) {
     company: json.company
   };
 }
-/**
- * Accepts a user id value and returns an object containing
- * username, website, and company data.
- * @param {Number} id The user id.
- * @return {Object} The user's username, website, and company data.
- */
+
 export async function db2(id) {
   if (typeof id !== "number") throw new Error("Invalid Input -- Not a Number");
   if (id < 5 || id > 7) throw new Error("Invalid Input -- Out of Range");
@@ -56,12 +41,7 @@ export async function db2(id) {
     company: json.company
   };
 }
-/**
- * Accepts a user id value and returns an object containing
- * username, website, and company data.
- * @param {Number} id The user id.
- * @return {Object} The user's username, website, and company data.
- */
+
 export async function db3(id) {
   if (typeof id !== "number") throw new Error("Invalid Input -- Not a Number");
   if (id < 8 || id > 10) throw new Error("Invalid Input -- Out of Range");
@@ -76,12 +56,7 @@ export async function db3(id) {
   };
 }
 
-/**
- * Accepts a user id value and returns an object containing
- * name, email, address, and phone data.
- * @param {Number} id The user id.
- * @return {Object} The user's name, email, address, and phone data.
- */
+
 export async function vault(id) {
   if (typeof id !== "number") throw new Error("Invalid Input -- Not a Number");
   if (id < 1 || id > 10) throw new Error("Invalid Input -- Out of Range");
